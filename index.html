@@ -40,12 +40,12 @@
 
         function calculate() {
             let sum = numbers.reduce((a, b) => a + b, 0);
-            document.getElementById("totalPages").innerText = "মোট পেজ: " + sum;
+            document.getElementById("totalPages").innerText = "মোট পেজ: " + Math.ceil(sum);
             document.getElementById("results").innerHTML = 
-                `A4 সাদাকালো: ${sum * 1.5} টাকা <br>
-                 A4 কালার: ${sum * 3} টাকা <br>
-                 A5 সাদাকালো: ${sum * 0.8} টাকা <br>
-                 A5 কালার: ${sum * 1.5} টাকা`;
+                `A4 সাদাকালো: ${Math.ceil(sum * 1.5)} টাকা <br>
+                 A4 কালার: ${Math.ceil(sum * 3)} টাকা <br>
+                 A5 সাদাকালো: ${Math.ceil(sum * 0.8)} টাকা <br>
+                 A5 কালার: ${Math.ceil(sum * 1.5)} টাকা`;
         }
     </script>
 </body>
