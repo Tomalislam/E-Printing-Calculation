@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ক্যালকুলেটর</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h2>সংখ্যা যোগ করুন</h2>
+    <input type="number" id="numberInput" placeholder="একটি সংখ্যা লিখুন">
+    <button onclick="addNumber()">যোগ করুন</button>
+    <button onclick="calculate()">গণনা করুন</button>
+    <p id="numbersList"></p>
+    <h3 id="totalPages"></h3>
+    <h3 id="results"></h3>
+
+    <script>
+        let numbers = [];
+
+        function addNumber() {
+            let num = document.getElementById("numberInput").value;
+            if (num) {
+                numbers.push(parseFloat(num));
+                document.getElementById("numbersList").innerText = "সংখ্যাগুলো: " + numbers.join(", ");
+                document.getElementById("numberInput").value = "";
+            }
+        }
+
+        function calculate() {
+            let sum = numbers.reduce((a, b) => a + b, 0);
+            document.getElementById("totalPages").innerText = "মোট পেজ: " + sum;
+            document.getElementById("results").innerHTML = 
+                `A4 সাদাকালো: ${sum * 1.5} টাকা <br>
+                 A4 কালার: ${sum * 3} টাকা <br>
+                 A5 সাদাকালো: ${sum * 0.8} টাকা <br>
+                 A5 কালার: ${sum * 1.5} টাকা`;
+        }
+    </script>
+</body>
+</html>
