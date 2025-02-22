@@ -73,6 +73,8 @@
                 calculate();
             } else if (event.key === "Delete") {
                 clearAll();
+            } else if (event.ctrlKey && event.key === "c") {
+                copyResults();
             }
         });
     </script>
