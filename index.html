@@ -42,13 +42,13 @@
 
         function calculate() {
             let sum = numbers.reduce((a, b) => a + b, 0);
-            let resultText = `মোট পেজ: ${Math.ceil(sum)}\n`
-                + `A4 সাদাকালো: ${Math.ceil(sum * 1.5)} টাকা\n`
+            let totalPages = Math.ceil(sum);
+            let resultText = `A4 সাদাকালো: ${Math.ceil(sum * 1.5)} টাকা\n`
                 + `A4 কালার: ${Math.ceil(sum * 3)} টাকা\n`
                 + `A5 সাদাকালো: ${Math.ceil(sum * 0.8)} টাকা\n`
                 + `A5 কালার: ${Math.ceil(sum * 1.5)} টাকা`;
             
-            document.getElementById("totalPages").innerText = "মোট পেজ: " + Math.ceil(sum);
+            document.getElementById("totalPages").innerText = `মোট পেজ: ${totalPages}`;
             document.getElementById("results").innerHTML = resultText.replace(/\n/g, '<br>');
         }
 
@@ -60,8 +60,10 @@
         }
 
         function copyResults() {
-            let text = `মোট পেজ: ${document.getElementById("totalPages").innerText}\n` + document.getElementById("results").innerText.replace(/<br>/g, '\n');
-            navigator.clipboard.writeText(text);
+            let totalPagesText = document.getElementById("totalPages").innerText;
+            let resultsText = document.getElementById("results").innerText.replace(/<br>/g, '\n');
+            let finalText = totalPagesText + "\n" + resultsText;
+            navigator.clipboard.writeText(finalText);
         }
     </script>
 </body>
