@@ -22,6 +22,7 @@
     <input type="number" id="numberInput" placeholder="একটি সংখ্যা লিখুন">
     <button onclick="addNumber()">যোগ করুন</button>
     <button onclick="calculate()">গণনা করুন</button>
+    <button onclick="clearAll()">ক্লিয়ার</button>
     <p id="numbersList"></p>
     <h3 id="totalPages"></h3>
     <h3 id="results"></h3>
@@ -46,6 +47,13 @@
                  A4 কালার: ${Math.ceil(sum * 3)} টাকা <br>
                  A5 সাদাকালো: ${Math.ceil(sum * 0.8)} টাকা <br>
                  A5 কালার: ${Math.ceil(sum * 1.5)} টাকা`;
+        }
+
+        function clearAll() {
+            numbers = [];
+            document.getElementById("numbersList").innerText = "";
+            document.getElementById("totalPages").innerText = "";
+            document.getElementById("results").innerText = "";
         }
     </script>
 </body>
